@@ -1,0 +1,70 @@
+
+
+
+Host network drivers:
+
+docker network ls
+docker container run -itd --network=host nginx
+docker conatiner ls
+docker container inspect 8f92aee8f1ec
+
+docker network create server1 
+
+docker run -d --name conatiner3 --net server1 nginx
+docker run -d -p 8080:80 --network host --name server1 nginx:alpine
+
+docker exec -it server2 sh
+/ # ping server1
+
+
+
+
+Container network model
+also called as CNM
+
+
+
+Images from a self-hosted registry - <path_of_the _registry>:<port>/<repository_name>/<image_name>
+Eg., registry.mylab.com:5000/my-private/image
+
+
+tagging:
+docker tag 2e407 test-tagging/photo-storage:v1.0
+
+docker run -it centos:labimage4
+
+
+Remove a tag :
+docke rmi centos:labimage4
+
+
+VI Editor:
+Press i key to enter insert mode
+after writing content in it
+press esc
+now press 
+:w   to write in the file
+:q to close the file
+
+:wq all together
+
+
+ip a
+
+1. docker run
+    -it - interactively
+    -d - background
+    --name
+image name
+docker run -it --name container1 <image_name>
+2. docker ps - running containers
+    -a - lists all containers
+    -q - lists only container id
+    -l - details of last created container
+3. docker images - lists the images loaded in the host machine
+4. docker load -i <image_name>
+5. docker start <container_id>
+6. docker stop/kill <container_id>
+7. docker attach <container_id>
+8. docker logs <container_id>
+9. ctrl+P+Q - detaches from container without exiting 
